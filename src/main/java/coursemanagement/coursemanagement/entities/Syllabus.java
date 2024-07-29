@@ -1,5 +1,6 @@
 package coursemanagement.coursemanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class Syllabus {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
+    @JsonBackReference
     private Course course;
 
     @OneToMany(mappedBy = "syllabus", cascade = CascadeType.ALL, orphanRemoval = true)

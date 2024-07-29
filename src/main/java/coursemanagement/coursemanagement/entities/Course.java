@@ -1,5 +1,6 @@
 package coursemanagement.coursemanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,6 @@ public class Course {
 
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-
+    @JsonManagedReference
     private List<Syllabus> syllabus;
 }
