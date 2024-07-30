@@ -1,4 +1,4 @@
-package coursemanagement.coursemanagement.entities;
+package com.groupthree.lms.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -14,7 +14,7 @@ public class LearningMaterial {
     private Topics topics;
 
     @ManyToOne
-    @JoinColumn(name = "topic_id")
+    @JoinColumn(name = "topic")
     @JsonBackReference
     private Topics topic;
 
