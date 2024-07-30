@@ -1,6 +1,6 @@
-package com.groupthree.lms.dto;
-import com.groupthree.lms.entities.Course;
-import com.groupthree.lms.entities.Topics;
+package com.groupthree.lms.dto.courseDto;
+import com.groupthree.lms.models.courseModel.Course;
+import com.groupthree.lms.models.courseModel.Topics;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

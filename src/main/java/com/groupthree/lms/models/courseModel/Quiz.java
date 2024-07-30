@@ -1,4 +1,4 @@
-package com.groupthree.lms.entities;
+package com.groupthree.lms.models.courseModel;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;

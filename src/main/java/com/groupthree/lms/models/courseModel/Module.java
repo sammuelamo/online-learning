@@ -1,5 +1,6 @@
-package com.groupthree.lms.entities;
+package com.groupthree.lms.models.courseModel;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,17 +15,20 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Course {
+public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
-    private String syllabus;
-    private String schedule;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "course_id")
+    @JsonBackReference
+    private Course course;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "module", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Module> modules;
+    private List<Topics> topic;
+
 }

@@ -1,8 +1,8 @@
-package com.groupthree.lms.service;
+package com.groupthree.lms.service.courseService;
 
-import com.groupthree.lms.dto.CourseDTO;
-import com.groupthree.lms.entities.Course;
-import com.groupthree.lms.repository.CourseRepository;
+import com.groupthree.lms.dto.courseDto.CourseDTO;
+import com.groupthree.lms.models.courseModel.Course;
+import com.groupthree.lms.repositories.courseRepository.CourseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

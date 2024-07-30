@@ -1,4 +1,4 @@
-package com.groupthree.lms.entities;
+package com.groupthree.lms.models.courseModel;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -11,24 +11,25 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-public class Module {
+public class Topics {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String description;
+    private String name;
+    private String content;
+    private String conclusion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id")
+    @ManyToOne
+    @JoinColumn(name = "module_id")
     @JsonBackReference
-    private Course course;
+    private Module module;
 
-    @OneToMany(mappedBy = "module", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Topics> topic;
-
+    private List<Quiz> quizzes;
 }

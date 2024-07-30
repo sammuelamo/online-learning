@@ -1,7 +1,7 @@
-package com.groupthree.lms.dto;
+package com.groupthree.lms.dto.courseDto;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.groupthree.lms.entities.Module;
+import com.groupthree.lms.models.courseModel.Module;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
