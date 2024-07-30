@@ -1,5 +1,6 @@
 package coursemanagement.coursemanagement.controller;
 
+import coursemanagement.coursemanagement.dto.QuizDTO;
 import coursemanagement.coursemanagement.entities.Quiz;
 import coursemanagement.coursemanagement.service.QuizService;
 import org.springframework.http.ResponseEntity;
@@ -18,20 +19,19 @@ public class QuizController {
     }
 
     @GetMapping
-    public List<Quiz> getAllQuiz() {
+    public List<QuizDTO> getAllQuiz() {
         return quizService.getAllQuiz();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Quiz> getHomeQuizById(@PathVariable Long id) {
-        return quizService.getQuizById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<QuizDTO> getQuizById(@PathVariable Long id) {
+        return ResponseEntity.ok(quizService.getQuizById(id));
     }
 
     @PostMapping
-    public Quiz createQuiz(@RequestBody Quiz homework) {
-        return quizService.addQuiz(homework);
+    public ResponseEntity<QuizDTO> createQuiz(@RequestBody QuizDTO quizDTO) {
+        QuizDTO createdQuiz = quizService.addQuiz(quizDTO);
+        return ResponseEntity.ok(createdQuiz);
     }
 
 

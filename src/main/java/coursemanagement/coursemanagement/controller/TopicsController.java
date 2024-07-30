@@ -1,5 +1,6 @@
 package coursemanagement.coursemanagement.controller;
 
+import coursemanagement.coursemanagement.dto.TopicsDTO;
 import coursemanagement.coursemanagement.entities.Topics;
 import coursemanagement.coursemanagement.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,29 +20,29 @@ public class TopicsController {
   }
 
     @PostMapping
-    public ResponseEntity<Topics> createTopic(@RequestBody Topics topic) {
-        Topics createdTopic = topicService.createTopic(topic);
+    public ResponseEntity<TopicsDTO> createTopic(@RequestBody TopicsDTO topic) {
+        TopicsDTO createdTopic = topicService.createTopic(topic);
         return ResponseEntity.ok(createdTopic);
     }
 
     @GetMapping
-    public ResponseEntity<List<Topics>> getAllTopics() {
-        List<Topics> topics = topicService.getAllTopics();
-        return ResponseEntity.ok(topics);
+    public ResponseEntity<List<TopicsDTO>> getAllTopics() {
+        List<TopicsDTO> topicsDTO = topicService.getAllTopics();
+        return ResponseEntity.ok(topicsDTO);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Topics> getTopicById(@PathVariable int id) {
-        Topics topic = topicService.getTopicById(id);
-        if (topic != null) {
-            return ResponseEntity.ok(topic);
+    public ResponseEntity<TopicsDTO> getTopicById(@PathVariable long id) {
+        TopicsDTO topicsDTO = topicService.getTopicById(id);
+        if (topicsDTO != null) {
+            return ResponseEntity.ok(topicsDTO);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTopicById(@PathVariable int id) {
+    public ResponseEntity<Void> deleteTopicById(@PathVariable long id) {
         topicService.deleteTopicById(id);
         return ResponseEntity.noContent().build();
     }

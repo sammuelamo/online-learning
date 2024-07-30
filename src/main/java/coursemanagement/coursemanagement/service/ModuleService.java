@@ -1,6 +1,7 @@
 package coursemanagement.coursemanagement.service;
 
 import coursemanagement.coursemanagement.dto.CourseDTO;
+import coursemanagement.coursemanagement.dto.ModuleDTO;
 import coursemanagement.coursemanagement.entities.Course;
 import coursemanagement.coursemanagement.entities.Module;
 import coursemanagement.coursemanagement.repository.ModuleRepository;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ModuleService {
@@ -20,26 +22,40 @@ public class ModuleService {
         this.courseService = courseService;
     }
 
-    public List<Module> getAllModules() {
-        return moduleRepository.findAll();
+    public List<ModuleDTO> getAllModules() {
+        return moduleRepository.findAll().stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
-    public Optional<Module> getModuleById(Long id) {
-        return moduleRepository.findById(id);
+    public ModuleDTO getModuleById(Long id) {
+        return convertToDTO(moduleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Module not found with ID: ")));
     }
 
-    public Module saveModule(Module module) {
-        if (module.getCourse() == null) {
+    public ModuleDTO saveModule(ModuleDTO moduleDTO) {
+        if (moduleDTO.getCourse() == null) {
             throw new IllegalArgumentException("Course cannot be null");
         }
-        CourseDTO courseDTO = courseService.getCourseById(module.getCourse().getId());
+        CourseDTO courseDTO = courseService.getCourseById(moduleDTO.getCourse().getId());
         Course course = convertToEntity(courseDTO);
+        Module module = convertToEntity(moduleDTO);
         module.setCourse(course);
-        return moduleRepository.save(module);
+        Module savedModule = moduleRepository.save(module);
+        return convertToDTO(savedModule);
     }
 
     public void deleteModule(Long id) {
         moduleRepository.deleteById(id);
+    }
+
+    private ModuleDTO convertToDTO(Module module) {
+        return new ModuleDTO(module.getId(), module.getTitle(), module.getDescription(),
+                module.getCourse(), module.getTopic());
+    }
+
+    public Module convertToEntity(ModuleDTO moduleDTO) {
+        return new Module(moduleDTO.getId(), moduleDTO.getTitle(), moduleDTO.getDescription(),
+                moduleDTO.getCourse(), moduleDTO.getTopic());
     }
 
     private Course convertToEntity(CourseDTO courseDTO) {

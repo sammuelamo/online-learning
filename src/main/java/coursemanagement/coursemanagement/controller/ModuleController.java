@@ -1,5 +1,6 @@
 package coursemanagement.coursemanagement.controller;
 
+import coursemanagement.coursemanagement.dto.ModuleDTO;
 import coursemanagement.coursemanagement.entities.Module;
 import coursemanagement.coursemanagement.service.ModuleService;
 import org.springframework.http.ResponseEntity;
@@ -20,21 +21,20 @@ public class ModuleController {
     }
 
     @GetMapping
-    public List<Module> getAllModule() {
+    public List<ModuleDTO> getAllModules() {
         return moduleService.getAllModules();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Module> getModuleById(@PathVariable Long id) {
-        Optional<Module> syllabus = moduleService.getModuleById(id);
-        return syllabus.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<ModuleDTO> getModuleById(@PathVariable Long id) {
+        ModuleDTO moduleDTO = moduleService.getModuleById(id);
+        return ResponseEntity.ok(moduleDTO);
     }
 
     @PostMapping
-    public Module createSyllabus(@RequestBody Module module) {
-        return moduleService.saveModule(module);
+    public ModuleDTO createModule(@RequestBody ModuleDTO moduleDTO) {
+        return moduleService.saveModule(moduleDTO);
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteModule(@PathVariable Long id) {
