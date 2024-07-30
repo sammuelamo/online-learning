@@ -39,6 +39,18 @@ public class QuizService {
 
         quizRepository.delete(quiz);
     }
+    public QuizDTO updateQuiz(Long id, QuizDTO quizDTO) {
+
+        Quiz existingQuiz = quizRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Quiz not found with id " + id));
+
+        existingQuiz.setQuiz(quizDTO.getQuiz());
+        existingQuiz.setTopic(quizDTO.getTopic());
+
+        Quiz updatedQuiz = quizRepository.save(existingQuiz);
+
+        return convertToDTO(updatedQuiz);
+    }
 
     public Quiz convertToEntity(QuizDTO quizDTO) {
         if (quizDTO == null) {
@@ -50,10 +62,10 @@ public class QuizService {
         quiz.setTopic(quizDTO.getTopic());
         return quiz;
     }
-public QuizDTO convertToDTO(Quiz quiz) {
-    if (quiz == null) {
-        return null;
+    public QuizDTO convertToDTO(Quiz quiz) {
+        if (quiz == null) {
+          return null;
     }
     return new QuizDTO(quiz.getId(), quiz.getQuiz(), quiz.getTopic());
-}
+    }
 }

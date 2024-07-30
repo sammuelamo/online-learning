@@ -43,7 +43,7 @@ public class CourseService {
         course.setDescription(courseDetails.getDescription());
         course.setSchedule(courseDetails.getSchedule());
         course.setSyllabus(courseDetails.getSyllabus());
-        course.setModules(courseDetails.getModules()); // Update modules if needed
+        course.setModules(courseDetails.getModules());
 
         Course updatedCourse = courseRepository.save(course);
         return convertToDTO(updatedCourse);

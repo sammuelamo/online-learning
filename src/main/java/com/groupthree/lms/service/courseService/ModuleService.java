@@ -47,6 +47,28 @@ public class ModuleService {
         moduleRepository.deleteById(id);
     }
 
+    public ModuleDTO updateModule(Long id, ModuleDTO moduleDTO) {
+        Module existingModule = moduleRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Module not found with ID: " + id));
+
+        existingModule.setTitle(moduleDTO.getTitle());
+        existingModule.setDescription(moduleDTO.getDescription());
+
+        if (moduleDTO.getCourse() != null) {
+            CourseDTO courseDTO = courseService.getCourseById(moduleDTO.getCourse().getId());
+            Course course = courseService.convertToEntity(courseDTO);
+            existingModule.setCourse(course);
+        }
+
+        if (moduleDTO.getTopic() != null) {
+            existingModule.setTopic(moduleDTO.getTopic());
+        }
+
+        Module updatedModule = moduleRepository.save(existingModule);
+
+        return convertToDTO(updatedModule);
+    }
+
     private ModuleDTO convertToDTO(Module module) {
         return new ModuleDTO(module.getId(), module.getTitle(), module.getDescription(),
                 module.getCourse(), module.getTopic());

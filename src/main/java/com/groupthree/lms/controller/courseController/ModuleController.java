@@ -39,4 +39,9 @@ public class ModuleController {
         moduleService.deleteModule(id);
         return ResponseEntity.noContent().build();
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ModuleDTO> updateModule(@PathVariable Long id, @RequestBody ModuleDTO moduleDTO) {
+        ModuleDTO updatedModule = moduleService.updateModule(id, moduleDTO);
+        return ResponseEntity.ok(updatedModule);
+    }
 }
