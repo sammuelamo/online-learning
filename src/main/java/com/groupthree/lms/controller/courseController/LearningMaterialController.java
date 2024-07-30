@@ -1,4 +1,4 @@
-package coursemanagement.coursemanagement.controller;
+package com.groupthree.lms.controller.courseController;
 
 import coursemanagement.coursemanagement.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
