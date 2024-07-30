@@ -1,6 +1,8 @@
 package com.groupthree.lms.controller.courseController;
 
-import com.groupthree.lms.service.S3Service;
+
+
+import com.groupthree.lms.service.courseService.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
