@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+
 public class Topics {
 
     @Id
@@ -32,4 +33,8 @@ public class Topics {
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Quiz> quizzes;
+
+    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<LearningMaterial> learningMaterials;
 }
