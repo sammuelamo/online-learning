@@ -1,4 +1,4 @@
-package coursemanagement.coursemanagement.config;
+package com.groupthree.lms.config;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
