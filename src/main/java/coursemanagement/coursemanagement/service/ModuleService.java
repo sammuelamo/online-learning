@@ -37,7 +37,7 @@ public class ModuleService {
             throw new IllegalArgumentException("Course cannot be null");
         }
         CourseDTO courseDTO = courseService.getCourseById(moduleDTO.getCourse().getId());
-        Course course = convertToEntity(courseDTO);
+        Course course = courseService.convertToEntity(courseDTO);
         Module module = convertToEntity(moduleDTO);
         module.setCourse(course);
         Module savedModule = moduleRepository.save(module);
@@ -56,11 +56,6 @@ public class ModuleService {
     public Module convertToEntity(ModuleDTO moduleDTO) {
         return new Module(moduleDTO.getId(), moduleDTO.getTitle(), moduleDTO.getDescription(),
                 moduleDTO.getCourse(), moduleDTO.getTopic());
-    }
-
-    private Course convertToEntity(CourseDTO courseDTO) {
-        return new Course(courseDTO.getId(), courseDTO.getTitle(), courseDTO.getDescription(),
-                courseDTO.getSyllabus(), courseDTO.getSchedule(), courseDTO.getModules());
     }
 
 

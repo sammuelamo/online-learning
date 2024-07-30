@@ -57,12 +57,12 @@ public class CourseService {
         courseRepository.delete(course);
     }
 
-    private CourseDTO convertToDTO(Course course) {
+    public CourseDTO convertToDTO(Course course) {
         return new CourseDTO(course.getId(), course.getTitle(), course.getDescription(),
                 course.getSyllabus(), course.getSchedule(), course.getModules());
     }
 
-    private Course convertToEntity(CourseDTO courseDTO) {
+    public Course convertToEntity(CourseDTO courseDTO) {
         return new Course(courseDTO.getId(), courseDTO.getTitle(), courseDTO.getDescription(),
                 courseDTO.getSyllabus(), courseDTO.getSchedule(), courseDTO.getModules());
     }
