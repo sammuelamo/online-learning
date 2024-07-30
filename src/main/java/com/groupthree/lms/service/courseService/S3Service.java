@@ -1,4 +1,4 @@
-package coursemanagement.coursemanagement.service;
+package com.groupthree.lms.service.courseService;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import org.springframework.beans.factory.annotation.Autowired;
