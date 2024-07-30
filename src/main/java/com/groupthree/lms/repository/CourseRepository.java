@@ -1,6 +1,6 @@
-package coursemanagement.coursemanagement.repository;
+package com.groupthree.lms.repository;
 
-import coursemanagement.coursemanagement.entities.Course;
+import com.groupthree.lms.entities.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

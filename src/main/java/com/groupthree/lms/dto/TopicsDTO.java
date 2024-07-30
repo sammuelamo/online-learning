@@ -1,9 +1,7 @@
-package coursemanagement.coursemanagement.dto;
+package com.groupthree.lms.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import coursemanagement.coursemanagement.entities.Module;
-import coursemanagement.coursemanagement.entities.Quiz;
+import com.groupthree.lms.entities.Module;
+import com.groupthree.lms.entities.Quiz;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

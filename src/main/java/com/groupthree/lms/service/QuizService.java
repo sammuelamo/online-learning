@@ -1,12 +1,11 @@
-package coursemanagement.coursemanagement.service;
+package com.groupthree.lms.service;
 
-import coursemanagement.coursemanagement.dto.QuizDTO;
-import coursemanagement.coursemanagement.entities.Quiz;
-import coursemanagement.coursemanagement.repository.QuizRepository;
+import com.groupthree.lms.dto.QuizDTO;
+import com.groupthree.lms.entities.Quiz;
+import com.groupthree.lms.repository.QuizRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

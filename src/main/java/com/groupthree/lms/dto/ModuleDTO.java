@@ -1,6 +1,6 @@
-package coursemanagement.coursemanagement.dto;
-import coursemanagement.coursemanagement.entities.Course;
-import coursemanagement.coursemanagement.entities.Topics;
+package com.groupthree.lms.dto;
+import com.groupthree.lms.entities.Course;
+import com.groupthree.lms.entities.Topics;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,6 @@
-package coursemanagement.coursemanagement.dto;
+package com.groupthree.lms.dto;
 
-import coursemanagement.coursemanagement.entities.Quiz;
-import coursemanagement.coursemanagement.entities.Topics;
+import com.groupthree.lms.entities.Topics;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

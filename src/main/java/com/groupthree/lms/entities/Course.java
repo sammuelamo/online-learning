@@ -1,26 +1,30 @@
-package coursemanagement.coursemanagement.dto;
+package com.groupthree.lms.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import coursemanagement.coursemanagement.entities.Module;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
-@Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseDTO {
-
+@Getter
+@Setter
+public class Course {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String syllabus;
     private String schedule;
 
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Module> modules;
 }

@@ -1,4 +1,4 @@
-package coursemanagement.coursemanagement.entities;
+package com.groupthree.lms.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;

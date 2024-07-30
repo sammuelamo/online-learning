@@ -1,10 +1,9 @@
-package coursemanagement.coursemanagement.service;
+package com.groupthree.lms.service;
 
-import coursemanagement.coursemanagement.dto.ModuleDTO;
-import coursemanagement.coursemanagement.dto.TopicsDTO;
-import coursemanagement.coursemanagement.entities.Module;
-import coursemanagement.coursemanagement.entities.Topics;
-import coursemanagement.coursemanagement.repository.TopicRepository;
+import com.groupthree.lms.dto.TopicsDTO;
+import com.groupthree.lms.entities.Module;
+import com.groupthree.lms.entities.Topics;
+import com.groupthree.lms.repository.TopicRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

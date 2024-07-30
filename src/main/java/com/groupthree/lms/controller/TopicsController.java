@@ -1,9 +1,7 @@
-package coursemanagement.coursemanagement.controller;
+package com.groupthree.lms.controller;
 
-import coursemanagement.coursemanagement.dto.TopicsDTO;
-import coursemanagement.coursemanagement.entities.Topics;
-import coursemanagement.coursemanagement.service.TopicService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.groupthree.lms.dto.TopicsDTO;
+import com.groupthree.lms.service.TopicService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

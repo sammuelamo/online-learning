@@ -1,8 +1,7 @@
-package coursemanagement.coursemanagement.controller;
+package com.groupthree.lms.controller;
 
-import coursemanagement.coursemanagement.dto.QuizDTO;
-import coursemanagement.coursemanagement.entities.Quiz;
-import coursemanagement.coursemanagement.service.QuizService;
+import com.groupthree.lms.dto.QuizDTO;
+import com.groupthree.lms.service.QuizService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

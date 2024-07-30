@@ -1,13 +1,11 @@
-package coursemanagement.coursemanagement.controller;
+package com.groupthree.lms.controller;
 
-import coursemanagement.coursemanagement.dto.ModuleDTO;
-import coursemanagement.coursemanagement.entities.Module;
-import coursemanagement.coursemanagement.service.ModuleService;
+import com.groupthree.lms.dto.ModuleDTO;
+import com.groupthree.lms.service.ModuleService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/module")
