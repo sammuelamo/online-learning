@@ -1,4 +1,5 @@
-package coursemanagement.coursemanagement.service;
+package com.groupthree.lms.service;
+
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class S3Service {
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         s3Client.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
         fileObj.delete();
-        return fileName;
+        return s3Client.getUrl(bucketName, fileName).toString();
     }
 
     private File convertMultiPartFileToFile(MultipartFile file) throws IOException {
