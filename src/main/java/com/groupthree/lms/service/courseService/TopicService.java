@@ -75,13 +75,6 @@ public class TopicService {
 
 
     private TopicsDTO convertToDTO(Topics topic) {
-        return new TopicsDTO(
-                topic.getId(),
-                topic.getName(),
-                topic.getContent(),
-                topic.getConclusion(),
-                topic.getModule(),
-                topic.getQuizzes()
-        );
+        return new TopicsDTO(topic.getId(), topic.getName(), topic.getContent(), topic.getConclusion(), topic.getModule(), topic.getQuizzes());
     }
 }
