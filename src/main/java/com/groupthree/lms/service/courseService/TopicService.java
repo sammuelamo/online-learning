@@ -53,6 +53,26 @@ public class TopicService {
     public void deleteTopicById(Long id) {
         topicRepository.deleteById(id);
     }
+    public TopicsDTO updateTopic(Long id, TopicsDTO topicDTO) {
+
+        Topics existingTopic = topicRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Topic not found with ID: " + id));
+
+        existingTopic.setName(topicDTO.getName());
+        existingTopic.setContent(topicDTO.getContent());
+        existingTopic.setConclusion(topicDTO.getConclusion());
+
+        Long moduleId = topicDTO.getModule().getId();
+        if (moduleId != null) {
+            Module module = moduleService.convertToEntity(moduleService.getModuleById(moduleId));
+            existingTopic.setModule(module);
+        }
+
+        Topics updatedTopic = topicRepository.save(existingTopic);
+        return convertToDTO(updatedTopic);
+    }
+
+
 
     private TopicsDTO convertToDTO(Topics topic) {
         return new TopicsDTO(

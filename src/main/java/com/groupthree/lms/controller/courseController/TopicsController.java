@@ -44,4 +44,10 @@ public class TopicsController {
         topicService.deleteTopicById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TopicsDTO> updateTopic(@PathVariable long id, @RequestBody TopicsDTO topicDTO) {
+        TopicsDTO updatedTopic = topicService.updateTopic(id, topicDTO);
+        return ResponseEntity.ok(updatedTopic);
+    }
 }
