@@ -1,7 +1,7 @@
-package com.groupthree.lms.dto;
+package com.groupthree.lms.dto.courseDto;
 
-import com.groupthree.lms.entities.Module;
-import com.groupthree.lms.entities.Quiz;
+import com.groupthree.lms.models.courseModel.Module;
+import com.groupthree.lms.models.courseModel.Quiz;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

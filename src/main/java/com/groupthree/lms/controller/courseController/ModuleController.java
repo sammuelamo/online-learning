@@ -1,7 +1,7 @@
-package com.groupthree.lms.controller;
+package com.groupthree.lms.controller.courseController;
 
-import com.groupthree.lms.dto.ModuleDTO;
-import com.groupthree.lms.service.ModuleService;
+import com.groupthree.lms.dto.courseDto.ModuleDTO;
+import com.groupthree.lms.service.courseService.ModuleService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

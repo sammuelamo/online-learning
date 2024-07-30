@@ -1,6 +1,6 @@
-package com.groupthree.lms.repository;
+package com.groupthree.lms.repositories.courseRepository;
 
-import com.groupthree.lms.entities.Topics;
+import com.groupthree.lms.models.courseModel.Topics;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
