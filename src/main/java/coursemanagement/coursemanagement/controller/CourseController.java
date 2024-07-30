@@ -1,5 +1,6 @@
 package coursemanagement.coursemanagement.controller;
 
+import coursemanagement.coursemanagement.dto.CourseDTO;
 import coursemanagement.coursemanagement.entities.Course;
 import coursemanagement.coursemanagement.service.CourseService;
 import org.springframework.http.ResponseEntity;
@@ -18,22 +19,23 @@ public class CourseController {
     }
 
     @GetMapping
-    public List<Course> getAllCourses() {
+    public List<CourseDTO> getAllCourses() {
         return courseService.getAllCourses();
     }
 
     @GetMapping("/{id}")
-    public Course getCourseById(@PathVariable Long id) {
-        return courseService.getCourseById(id);
+    public ResponseEntity<CourseDTO> getCourseById(@PathVariable Long id) {
+        return ResponseEntity.ok(courseService.getCourseById(id));
     }
 
     @PostMapping
-    public Course createCourse(@RequestBody Course course) {
-        return courseService.addCourse(course);
+    public ResponseEntity<CourseDTO> createCourse(@RequestBody CourseDTO courseDTO) {
+        CourseDTO createdCourse = courseService.addCourse(courseDTO);
+        return ResponseEntity.ok(createdCourse);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Course> updateCourse(@PathVariable Long id, @RequestBody Course courseDetails) {
+    public ResponseEntity<CourseDTO> updateCourse(@PathVariable Long id, @RequestBody CourseDTO courseDetails) {
         return ResponseEntity.ok(courseService.updateCourse(id, courseDetails));
     }
 

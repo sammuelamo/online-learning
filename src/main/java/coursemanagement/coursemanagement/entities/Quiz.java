@@ -1,5 +1,6 @@
 package coursemanagement.coursemanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,13 +12,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class HomeWork {
+public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String questions;
+    private String quiz;
 
     @ManyToOne
     @JoinColumn(name = "topic_id")
+    @JsonBackReference
     private Topics topic;
 }

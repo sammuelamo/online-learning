@@ -1,14 +1,20 @@
 package coursemanagement.coursemanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Topics {
 
     @Id
@@ -19,9 +25,11 @@ public class Topics {
     private String conclusion;
 
     @ManyToOne
-    @JoinColumn(name = "syllabus_id")
-    private Syllabus syllabus;
+    @JoinColumn(name = "module_id")
+    @JsonBackReference
+    private Module module;
 
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<HomeWork> homeWorks;
+    @JsonManagedReference
+    private List<Quiz> quizzes;
 }
