@@ -1,0 +1,16 @@
+{
+  "version": "2.2.0",
+  "summary": {
+    "title": "New Threat Model",
+    "owner": "Samuel Amo",
+    "description": " The college library website is the first implementation of a website to provide librarians and library patrons (students and college staff) with online services. As this is the first implementation of the website, the functionality will be limited. There will be three users of the application:\n\nStudents\nStaff\nLibrarians\nStaff and students will be able to log in and search for books, and staff members can request books. Librarians will be able to log in, add books, add users, and search for books.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "diagramTop": 0,
+    "reviewer": "Kwaku Duah",
+    "threatTop": 0
+  }
+}
